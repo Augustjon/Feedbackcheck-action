@@ -19,7 +19,7 @@ The inputs of the actions are:
 To use the action you may create a file in your project (example `.github/workflows/feedbackcheck.yml`) and include these lines of code.
 ````yml
 name: Feedback-check
-on: 
+on:
   pull_request:
     paths:
       - '**/feedback/**/README.md'
@@ -28,10 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-
     - name: check feedback
       id: feedback
-      uses: ./contributions/course-automation/augustjo-grunler
+      uses: Augustjon/Feedbackcheck-action@v1
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
         minimal-wordcount: 500
